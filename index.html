@@ -1,0 +1,115 @@
+
+				<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea, button {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #resume {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Resume Builder</h1>
+    </header>
+    <main>
+        <form id="resume-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="location">Location:</label>
+            <input type="location" id="location" required>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required>
+            <label for="experience">Experience:</label>
+            <textarea id="experience" rows="5"></textarea>
+             <label for="skills">Skills:</label>
+             <textarea id="skills" rows="6"></textarea>
+             <label for="project link">Project Link:</label>
+             <textarea id="project link" rows="2"></textarea>
+             <label for="linkedln link">Linkedln Link:</label>
+             <textarea id="linkedln link" rows="2"></textarea>
+            <button type="submit">Generate Resume</button>
+        </form>
+        <div id="resume">
+            <!-- Resume will be generated here -->
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const resumeForm = document.getElementById("resume-form");
+            const resumeDiv = document.getElementById("resume");
+
+            resumeForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const location = document.getElementById("location").value;
+                const phone = document.getElementById("phone").value;
+                const experience = document.getElementById("experience").value;
+                const skills = document.getElementById("skills").value;
+                const project  = document.getElementById("project link").value;
+                const linkedln  = document.getElementById("linkedln link").value;
+
+                const resumeHTML = `
+                    <h2>${name}</h2>
+                    <p>Email: ${email}</p>
+                    <p>Location:  ${location}</p>
+                    <p>Phone: ${phone}</p>
+                    <p> Experience: ${experience}</p>
+                    <p>Skills: ${skills}</p>
+                    <p>Project: ${project}</p>
+                    <p>Linkedln: ${linkedln}</p>
+                `;
+
+                resumeDiv.innerHTML = resumeHTML;
+            });
+        });
+    </script>
+</body>
+</html>
+
+			
+
+		
